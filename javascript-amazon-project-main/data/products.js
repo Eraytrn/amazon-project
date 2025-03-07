@@ -50,6 +50,7 @@ class Clothing extends Product{
   }
 
   extraInfoHTML(){
+    //super.extraInfoHTML();
     return `
         <a href="${this.sizeChartLink}" target = "_blank">
           Size Chart
@@ -57,6 +58,50 @@ class Clothing extends Product{
     `;
   }
 }
+
+  /*
+  const date = new Date();
+  console.log(date);
+  console.log(date.toLocaleTimeString());
+  */
+
+  // Arrow function kullanırsan, this global scope’a bağlı kalır, nesneyi işaret etmez ve genellikle undefined olur.
+  //  Normal function (b() {} gibi) kullanırsan, this nesneyi işaret eder ve doğru çalışır.
+  
+/*
+  const object2 = {
+    a: 2,
+    b: this.a
+  };
+
+  console.log(object2.b);
+  */
+
+  /*
+  const object3 = {
+    a: 2,
+    b() { return this.a; }  // Burada 'this', object2'yi referans eder
+  };
+  
+  console.log(object3.b());  // Çıktı: 2
+  */
+  
+  /*
+  function logThis() {
+    console.log(this);
+  }
+  logThis();
+  logThis.call('hello');
+  */
+
+  
+  const object3 = {
+    method: () => {
+      console.log(this);
+    }
+  };
+  object3.method();
+  
 
 export const products = [
   {

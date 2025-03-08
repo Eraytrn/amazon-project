@@ -94,14 +94,14 @@ class Clothing extends Product{
   logThis.call('hello');
   */
 
-  
+  /*
   const object3 = {
     method: () => {
       console.log(this);
     }
   };
   object3.method();
-  
+  */
 
 export const products = [
   {

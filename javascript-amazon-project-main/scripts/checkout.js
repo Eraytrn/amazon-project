@@ -25,14 +25,24 @@ function loadPage(){
 // async await can only be used with Promises.
 // bu fonksiyon yukarıdaki fonksiyonun kisayoludur.
 async function loadPage(){
+    try{
 
-    await loadProductsFetch();
+       // throw 'error1'
+         
+        await loadProductsFetch();
 
-    const value = await new Promise((resolve) => {
-        loadCart(() => {
-            resolve('value3');
-        });
-});
+        const value = await new Promise((resolve, reject) => {
+            //throw 'error2'; // senkron hata mesajları için kullanılır
+            loadCart(() => {
+               // reject('error3') // gelecekte asenkron hata mesajları olusturmak ıcın kullanılır
+               resolve('value3');
+            });
+    });
+
+    } catch(error) {
+    console.log('Unexpected error. Please try again later.')
+    }
+    
 
     renderOrderSummary();
     renderPaymentSummary();
